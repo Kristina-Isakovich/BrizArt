@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "outDir": "./build/",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "include": [
+    "src/index.tsx"
+  ],
+  "paths": {
+    "app-history": ["src/history"],
+    "components/*": ["src/components/*"],
+    "styles-constants": ["src/styles.constants"],
+    "img": ["public/img/*"],
+
+    "store": ["src/store"],
+    "app-constants": ["src/constants"],
+    "selectors/*": ["src/selectors/*"],
+    "actions/*": ["src/actions/*"],
+    "reducers/*": ["src/reducers/*"],
+    "modules/*": ["src/modules/*"],
+    "utils/*": ["src/utils/*"]
+  }
+}

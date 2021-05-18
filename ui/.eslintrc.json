@@ -1,0 +1,34 @@
+{
+    //browser and Node.js environments
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    //eslint-plugin-react
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true //enable JSX
+        },
+        "ecmaVersion": 12, //ECMAScript2021
+        "sourceType": "module" //code is in ECMAScript modules
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": ["error", 2, { "SwitchCase": 1 }], //indentation level for case clauses in switch
+        "quotes": ["error", "single"], //the use of single quotes wherever possible
+        "semi": ["error", "never"], //disallows semicolons as the end of statements
+        "comma-dangle": ["error", "always-multiline"], //requires trailing commas
+        "react/prop-types": 0, //prevent missing props validation
+        "@typescript-eslint/explicit-module-boundary-types": 2, //require explicit return and argument types
+        "@typescript-eslint/no-unused-vars": 2 //Disallow unused variables
+    }
+}
