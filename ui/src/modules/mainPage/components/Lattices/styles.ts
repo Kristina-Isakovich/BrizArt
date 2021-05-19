@@ -1,0 +1,54 @@
+import styled from 'styled-components'
+import { COLORS, TEXT_SIZE } from 'styles-constants'
+
+export const StyledContainer = styled.div`
+  position: relative;
+  margin-bottom: 3rem;
+  & .background {
+    display: block;
+    width: 100%;
+  }
+  & .ellipse {
+    display: block;
+    position: absolute;
+    bottom: 3.5rem;
+    left: 6.5rem;
+    width: 26%;
+  }
+`
+
+export const StyledTitles = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  min-height: 7rem;
+  font-weight: bold;
+  font-size: ${TEXT_SIZE.mainHeading};
+  & p {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  & .name {
+    justify-content: flex-end;
+    padding-right: 10rem;
+    color: ${COLORS.light};
+    background-color: ${COLORS.dark};
+  }
+  & .price {
+    justify-content: center;
+    background-color: ${COLORS.accent};
+  }
+`
+
+export const StyledTable = styled.div`
+  display: grid;
+  grid-template-columns: 1.8fr repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  font-weight: 700;
+  font-size: ${TEXT_SIZE.minText};
+  & p {
+    border: 1px solid ${COLORS.dark};
+    text-align: center;
+    padding: 1.5rem;
+  }
+`

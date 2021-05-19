@@ -22,18 +22,19 @@
   "include": [
     "src/index.tsx"
   ],
+  "baseUrl": "./",
   "paths": {
     "app-history": ["src/history"],
     "components/*": ["src/components/*"],
     "styles-constants": ["src/styles.constants"],
-    "img": ["public/img/*"],
+    "img/*": ["public/img/*"],
+    "modules/*": ["src/modules/*"],
 
     "store": ["src/store"],
     "app-constants": ["src/constants"],
     "selectors/*": ["src/selectors/*"],
     "actions/*": ["src/actions/*"],
     "reducers/*": ["src/reducers/*"],
-    "modules/*": ["src/modules/*"],
     "utils/*": ["src/utils/*"]
   }
 }
