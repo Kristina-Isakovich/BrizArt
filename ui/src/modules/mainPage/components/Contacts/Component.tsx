@@ -7,7 +7,9 @@ export const Contacts: React.FC = () => {
     <StylesContacts>
       {contacts.map(({img, title, link}) => (
         <StylesLink key={img} href={link}>
-          <img src={img} alt={img} height='50'/>
+          <div className='contact__icon'>
+            <img src={img} alt={img} />
+          </div>
           <p>{title}</p>
         </StylesLink>
       ))}

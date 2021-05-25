@@ -3,7 +3,6 @@
 ## Based on
 * [TypeScript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
 * [Antd](https://ant.design/)
 
 ## Install project

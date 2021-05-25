@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLORS, TEXT_SIZE } from 'styles-constants'
+import { TEXT_SIZE } from 'styles-constants'
 
 export const StyledText = styled.div`
   font-weight: 300;

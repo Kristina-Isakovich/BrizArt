@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyledText } from './styles'
-
+import { Form } from './Form'
 
 export const Order: React.FC = () => (
-  <div>
-
+  <>
+    <Form />
     <StyledText>После получения заявки мы свяжемся с Вами для уточнения деталей заказа.<br/>
       <br/>
       Оплата:<br/>
@@ -17,5 +17,5 @@ export const Order: React.FC = () => (
       г. Минска и Минский район - транспортом продавца<br/>
       за пределы Минского района - транспортом заказчика или куръерской службой
     </StyledText>
-  </div>
+  </>
 )

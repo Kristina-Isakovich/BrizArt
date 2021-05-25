@@ -1,7 +1,7 @@
-import advantage_1 from 'img/icons/advantage_1.png'
-import advantage_2 from 'img/icons/advantage_2.png'
-import advantage_3 from 'img/icons/advantage_3.png'
-import advantage_4 from 'img/icons/advantage_4.png'
+import advantage_1 from 'img/icons/advantage_1.svg'
+import advantage_2 from 'img/icons/advantage_2.svg'
+import advantage_3 from 'img/icons/advantage_3.svg'
+import advantage_4 from 'img/icons/advantage_4.svg'
 
 interface IAdvantages {
   img: string,

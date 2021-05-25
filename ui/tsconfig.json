@@ -29,12 +29,5 @@
     "styles-constants": ["src/styles.constants"],
     "img/*": ["public/img/*"],
     "modules/*": ["src/modules/*"],
-
-    "store": ["src/store"],
-    "app-constants": ["src/constants"],
-    "selectors/*": ["src/selectors/*"],
-    "actions/*": ["src/actions/*"],
-    "reducers/*": ["src/reducers/*"],
-    "utils/*": ["src/utils/*"]
   }
 }

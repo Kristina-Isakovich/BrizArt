@@ -21,13 +21,6 @@ module.exports = {
       'styles-constants': path.resolve(__dirname, 'src/styles.constants'),
       'img': path.resolve(__dirname, 'public/img'),
       'modules': path.resolve(__dirname, 'src/modules'),
-
-      'app-constants': path.resolve(__dirname, 'src/constants'),
-      'selectors': path.resolve(__dirname, 'src/selectors'),
-      'store': path.resolve(__dirname, 'src/store'),
-      'actions': path.resolve(__dirname, 'src/actions'),
-      'reducers': path.resolve(__dirname, 'src/reducers'),
-      'utils': path.resolve(__dirname, 'src/utils'),
     },
   },
   module: {

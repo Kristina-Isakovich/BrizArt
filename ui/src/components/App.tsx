@@ -1,5 +1,4 @@
 import React from 'react'
-//import { Provider } from 'react-redux'
 import {
   Router,
   Switch,
@@ -8,12 +7,12 @@ import {
 import { history } from 'app-history'
 import { Header } from './Header'
 import { GlobalStyle, StyledContainer } from './styles'
+import 'antd/dist/antd.css'
 import { MainPage } from 'modules/mainPage'
 import { News } from 'modules/news'
 import { Footer } from './Footer'
 
 const App: React.FC = () => (
-  //<Provider store={}>
   <Router history={history}>
     <GlobalStyle />
     <Header />
@@ -26,7 +25,6 @@ const App: React.FC = () => (
       <Footer />
     </StyledContainer>
   </Router>
-  //</Provider>
 )
 
 export default App

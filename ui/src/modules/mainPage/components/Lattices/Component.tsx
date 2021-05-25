@@ -1,14 +1,17 @@
 import React from 'react'
 import Scroll from 'img/icons/scroll.svg'
 import { StyledContainer, StyledTable, StyledTitles } from './styles'
-import Slider from 'infinite-react-carousel'
+import { Carousel } from 'antd'
 import { lattices } from './lattices.service'
+import './index.css'
 
 export const Lattices:React.FC = () => (
-  <Slider
+  <Carousel
+    dots={false}
+    arrows
     nextArrow={<img src={Scroll} alt='>'/>}
-    prevArrow={<img style={{transform: 'scaleX(-1)'}} src={Scroll} alt='<'/>}
-    autoplay={true}
+    prevArrow={<img src={Scroll} alt='<'/>}
+    autoplay
   >
     {lattices.map(({background, ellipse, name, price, table}) => (
       <div key={name}>
@@ -29,5 +32,5 @@ export const Lattices:React.FC = () => (
         </StyledTable>
       </div>
     ))}
-  </Slider>
+  </Carousel>
 )

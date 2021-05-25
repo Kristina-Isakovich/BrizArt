@@ -1,0 +1,22 @@
+.ant-carousel .slick-next {
+  right: 20px;
+}
+
+.ant-carousel .slick-prev {
+  left: 20px;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+.ant-carousel .slick-next,
+.ant-carousel .slick-prev {
+  opacity: 60%;
+  height: 30px;
+  width: 30px;
+  transition: all .3s ease-in-out;
+}
+
+.ant-carousel .slick-next:hover,
+.ant-carousel .slick-prev:hover {
+  opacity: 100%;
+}

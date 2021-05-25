@@ -9,7 +9,7 @@ import Application from 'img/Application.png'
 export interface IRoute {
   id?: string
   title: string
-  component: React.FC
+  component: React.FC | JSX.Element
 }
 
 export const content: Array<IRoute> = [
@@ -31,6 +31,7 @@ export const content: Array<IRoute> = [
     component: <Lattices />,
   },
   {
+    id: 'order',
     title: 'ЗАКАЗ',
     component: <Order />,
   },

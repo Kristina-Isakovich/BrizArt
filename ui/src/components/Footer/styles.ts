@@ -14,4 +14,10 @@ export const StyledFooter = styled.footer`
   & p {
     text-align: center;
   }
+  & .footer__logo {
+    width: 5rem;
+    & img {
+      width: 100%;
+    }
+  }
 `

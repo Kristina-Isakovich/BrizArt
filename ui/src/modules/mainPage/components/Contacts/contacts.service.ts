@@ -1,7 +1,7 @@
-import telephone from 'img/icons/telephone.png'
-import telegram from 'img/icons/telegram.png'
-import viber from 'img/icons/viber.png'
-import mail from 'img/icons/mail.png'
+import telephone from 'img/icons/telephone.svg'
+import telegram from 'img/icons/telegram.svg'
+import viber from 'img/icons/viber.svg'
+import mail from 'img/icons/mail.svg'
 
 interface IContacts {
   img: string,

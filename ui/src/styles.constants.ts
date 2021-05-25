@@ -3,7 +3,6 @@ export const COLORS = {
   mainText: 'black',
   light: 'white',
   accent: '#ffd940',
-  accentDark: '#ffe16f',
   dark: '#595959',
   background: '#E5E5E5',
 }
