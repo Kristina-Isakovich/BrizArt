@@ -5,11 +5,10 @@ export const StyledButton = styled.button`
   cursor: pointer;
   outline: none;
   border: none;
-  color: ${COLORS.mainText};
+  color: ${COLORS.text};
   background-color: ${COLORS.accent};
-  width: 20rem;
   height: 5rem;
-  padding: 1rem;
+  padding: 1rem 3.7rem;
   border-radius: 25px;
   font-size: ${TEXT_SIZE.text};
   letter-spacing: 0.1em;

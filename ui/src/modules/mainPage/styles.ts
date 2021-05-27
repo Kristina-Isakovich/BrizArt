@@ -9,7 +9,7 @@ export const StylesSection = styled.section`
   background-size: cover;
   display: flex;
   justify-content: center;
-  padding: 40px;
+  padding: 40px 15px;
   margin-bottom: 10rem;
 `
 
@@ -20,6 +20,26 @@ export const StylesH1 = styled.h1`
   width: 450px;
   text-align: center;
   letter-spacing: 0.1em;
+  & span:not(:last-child) {
+    display: block;
+    position: relative;
+    padding-bottom: 33px;
+    margin-bottom: 27px;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+      background-color: #d4dcd8;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+  @media (max-width: 426px) {
+    font-size: 20px;
+  }
 `
 
 export const StylesContainer = styled.section`

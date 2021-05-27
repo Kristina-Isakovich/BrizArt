@@ -31,7 +31,6 @@ export const content: Array<IRoute> = [
     component: <Lattices />,
   },
   {
-    id: 'order',
     title: 'ЗАКАЗ',
     component: <Order />,
   },

@@ -6,8 +6,10 @@ interface IButtonProps {
   type?: 'submit'
 }
 
-export const Button: React.FC<IButtonProps> = ({className, type}) => {
+export const Button: React.FC<IButtonProps> = (props) => {
   return (
-    <StyledButton className={className} type={type}>ЗАКАЗАТЬ</StyledButton>
+    <StyledButton className={props.className} type={props.type}>
+      {props.children}
+    </StyledButton>
   )
 }

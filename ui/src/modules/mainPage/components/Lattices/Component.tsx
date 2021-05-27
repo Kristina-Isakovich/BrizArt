@@ -2,7 +2,7 @@ import React from 'react'
 import Scroll from 'img/icons/scroll.svg'
 import { StyledContainer, StyledTable, StyledTitles } from './styles'
 import { Carousel } from 'antd'
-import { lattices } from './lattices.service'
+import { lattices } from '../../lattices.service'
 import './index.css'
 
 export const Lattices:React.FC = () => (
@@ -13,7 +13,7 @@ export const Lattices:React.FC = () => (
     prevArrow={<img src={Scroll} alt='<'/>}
     autoplay
   >
-    {lattices.map(({background, ellipse, name, price, table}) => (
+    {lattices.map(({background, ellipse, name, price, table, id}) => (
       <div key={name}>
         <StyledContainer>
           <img className='background' src={background} alt='Background'/>
@@ -24,11 +24,11 @@ export const Lattices:React.FC = () => (
           </StyledTitles>
         </StyledContainer>
 
-        <StyledTable>
+        <StyledTable id={id}>
           <p>Скорость воздуха, м/с</p>
-          {table.speed.map(i => <p>{i.toFixed(1)}</p>)}
+          {table.speed.map(i => <p key={i}>{i.toFixed(1)}</p>)}
           <p>Расход воздуха, м3/ч</p>
-          {table.consumption.map(i => <p>{i.toFixed(1)}</p>)}
+          {table.consumption.map(i => <p key={i}>{i.toFixed(1)}</p>)}
         </StyledTable>
       </div>
     ))}

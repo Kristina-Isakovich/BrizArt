@@ -13,6 +13,7 @@ interface ITable {
 }
 
 interface ILattices {
+  id?: string,
   background: string,
   ellipse: string,
   name: string,
@@ -52,6 +53,7 @@ export const lattices: Array<ILattices> = [
     },
   },
   {
+    id: 'order',
     background: Background4,
     ellipse: Ellipse4,
     name: 'BY-BY',

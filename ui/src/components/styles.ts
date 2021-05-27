@@ -1,15 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { COLORS } from 'styles-constants'
-
-export const StyledContainer = styled.div`
-  max-width: 100rem;
-  margin: 0 auto;
-  padding: 0 3.5rem;
-  background-color: white;
-  @media (max-width: 1024px) {
-    max-width: none;
-  }
-`
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -19,21 +9,32 @@ export const GlobalStyle = createGlobalStyle`
   }
   :root {
     font-size: 62.5%;
+    
+    @media (max-width: 768px) {
+      font-size: 8px;
+    }
   }
   a {
     color: ${COLORS.mainText};
     text-decoration: none;
+    &:hover {
+      color: black;
+    }
   }
   p {
     margin-bottom: 0;
   }
-
-  @media (max-width: 768px) {
-    :root {
-      font-size: 7px;
+  .container {
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 0 3.5rem;
+    background-color: ${COLORS.light};
+    
+    @media (max-width: 1024px) {
+      max-width: none;
     }
-   body.lock {
-     overflow: hidden;
-   }
+    @media (max-width: 768px) {
+      padding: 0 2rem;
+    }
   }
 `

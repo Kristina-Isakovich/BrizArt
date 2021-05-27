@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { history } from 'app-history'
 import { Header } from './Header'
-import { GlobalStyle, StyledContainer } from './styles'
+import { GlobalStyle } from './styles'
 import 'antd/dist/antd.css'
 import { MainPage } from 'modules/mainPage'
 import { News } from 'modules/news'
@@ -16,14 +16,13 @@ const App: React.FC = () => (
   <Router history={history}>
     <GlobalStyle />
     <Header />
-
-    <StyledContainer>
+    <div className='container'>
       <Switch>
         <Route key={1} path={'/'} exact component={MainPage}/>
         <Route key={2} path={'/news'} component={News}/>
       </Switch>
       <Footer />
-    </StyledContainer>
+    </div>
   </Router>
 )
 

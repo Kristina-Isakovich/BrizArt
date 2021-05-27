@@ -7,7 +7,9 @@ export const Advantage: React.FC = () => {
     <StylesAdvantages>
       {advantages.map(({img, title}) => (
         <StylesItem key={img}>
-          <img src={img} alt={img} height='50'/>
+          <div className='advantage__icon'>
+            <img src={img} alt={img}/>
+          </div>
           <p>{title}</p>
         </StylesItem>
       ))}

@@ -20,4 +20,8 @@ export const StyledFooter = styled.footer`
       width: 100%;
     }
   }
+
+  @media (max-width: 640px) {
+    font-size: ${TEXT_SIZE.minText};
+  }
 `

@@ -6,13 +6,8 @@ export const StyledMenu = styled.div`
   align-items: center;
   font-size: ${TEXT_SIZE.header};
   font-weight: 500;
-  & .header__item_mobile {
-    display: none;
-  }
   & > *:not(:last-child) {
     margin-right: 4rem;
-  }
-  & > a {
     margin-bottom: -1rem;
     padding-bottom: 1rem;
     position: relative;
@@ -35,15 +30,7 @@ export const StyledMenu = styled.div`
       }
     }
   }
-  
-  @media (max-width: 1000px) {
-    & .header__item_mobile {
-      display: inline;
-    }
-    & .header__btn {
-      display: none;
-    }
-  }
+
   @media (max-width: 768px) {
     font-size: 3.2rem;
     flex-direction: column;
@@ -62,5 +49,27 @@ export const StyledMenu = styled.div`
     & > *:not(:last-child) {
       margin: 0 0 3rem 0;
     }
-  }
+    & > *:last-child {
+      margin-bottom: -1rem;
+      padding-bottom: 1rem;
+      position: relative;
+      transition: .5s;
+      &:after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 0;
+        background-color: ${COLORS.accent};
+        bottom: 0;
+        left: 50%;
+        transition: width .3s ease-in-out;
+        transform: translate(-50%, 0);
+      }
+      &:hover {
+        color: ${COLORS.accent};
+        &::after {
+          width: 4rem;
+        }
+      }
+    }
 `

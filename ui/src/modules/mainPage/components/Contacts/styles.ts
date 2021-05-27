@@ -1,55 +1,54 @@
 import styled from 'styled-components'
 import { COLORS, TEXT_SIZE } from 'styles-constants'
 
+export const StylesWrapper = styled.div`
+  @media (max-width: 640px) {
+    align-self: center;
+  }
+`
+
 export const StylesContacts = styled.div`
   display: flex;
   font-weight: 500;
   font-size: ${TEXT_SIZE.text};
   justify-content: space-between;
   
-  & > div:not(:last-child) {
-    margin-right: 4rem;
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: baseline;
+    & > a:not(:last-child) {
+      margin: 0 0 3rem 0;
+    }
   }
 `
 
 export const StylesLink = styled.a`
   cursor: pointer;
   display: block;
-  text-align: center;  
-  transition: all .3s ease-in-out;
+  text-align: center;
   & .contact__icon {
     margin: 0 auto;
     margin-bottom: 2.5rem;
     width: 5rem;
     & img {
-      width: 100%;
-    }
-  }
-  @keyframes swing {
-    15% {
-      transform: translateX(9px);
-    }
-    30% {
-      transform: translateX(-9px);
-    }
-    40% {
-      transform: translateX(6px);
-    }
-    50% {
-      transform: translateX(-6px);
-    }
-    65% {
-      transform: translateX(3px);
-    }
-    100% {
-      transform: translateX(0);
+      transition: all .3s ease-in-out;
+      width: 100%;      
     }
   }
   &:hover {
     & img {
-      animation: swing 0.6s ease-in-out;
-      animation-iteration-count: 1;
+      filter: invert(.6) sepia(2) saturate(4) brightness(1.1);
+      transform: scale(1.1);
     }
     color: ${COLORS.accent};
+  }
+
+  @media (max-width: 640px) {
+    display: flex;
+    align-items: center;
+    & .contact__icon {
+      margin: 0 2.5rem 0 0;
+      width: 3rem;
+    }
   }
 `
