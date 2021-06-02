@@ -10,6 +10,7 @@ export const COLORS = {
 export const TEXT_SIZE = {
   minText: '1.6rem',
   header: '1.8rem',
+  titleNews: '2.4rem',
   text: '2rem',
   heading: '3rem',
   mainHeading: '3.6rem',

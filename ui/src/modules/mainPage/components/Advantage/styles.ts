@@ -15,12 +15,13 @@ export const StylesAdvantages = styled.div`
     grid-gap: 2rem;
     align-items: center;
     & > div:not(:last-child) {
-      margin: 0;
+      margin: 0 auto;
     }
   }
 `
 
 export const StylesItem = styled.div`
+  margin: 0 auto;
   text-align: center;
   & .advantage__icon {
     margin: 0 auto;
@@ -32,7 +33,6 @@ export const StylesItem = styled.div`
   }
 
   @media (max-width: 620px) {
-    margin: 0 auto;
     & p {
       max-width: 164px;
     }

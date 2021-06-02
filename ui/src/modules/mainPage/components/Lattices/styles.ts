@@ -14,6 +14,15 @@ export const StyledContainer = styled.div`
     bottom: 3.5rem;
     left: 6.5rem;
     width: 26%;
+
+    @media (max-width: 540px) {
+      left: 4rem;
+      bottom: 2rem;
+      width: 30%;
+    }
+    @media (max-width: 440px) {
+      left: 3rem;
+    }
   }
 `
 
@@ -23,6 +32,14 @@ export const StyledTitles = styled.div`
   min-height: 7rem;
   font-weight: bold;
   font-size: ${TEXT_SIZE.mainHeading};
+
+  @media (max-width: 500px) {
+    font-size: ${TEXT_SIZE.heading};
+  }
+  @media (max-width: 440px) {
+    min-height: 5rem;
+    font-size: ${TEXT_SIZE.text};
+  }
   & p {
     display: flex;
     align-items: center;
@@ -33,6 +50,10 @@ export const StyledTitles = styled.div`
     padding-right: 10rem;
     color: ${COLORS.light};
     background-color: ${COLORS.dark};
+
+    @media (max-width: 540px) {
+      padding-right: 5rem;
+    }
   }
   & .price {
     justify-content: center;
@@ -50,5 +71,16 @@ export const StyledTable = styled.div`
     border: 1px solid ${COLORS.dark};
     text-align: center;
     padding: 1.5rem;
+    
+    @media (max-width: 600px) {
+      padding: .8rem;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 453px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 380px) {
+      font-size: .8rem;
+    }
   }
 `
