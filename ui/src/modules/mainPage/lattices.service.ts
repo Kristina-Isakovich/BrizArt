@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Background1 from 'img/Background_1.png'
 import Ellipse1 from 'img/Ellipse_1.png'
 import Background2 from 'img/Background_2.png'
@@ -12,7 +13,7 @@ interface ITable {
   consumption: Array<number>
 }
 
-interface ILattices {
+export interface ILattices {
   id?: string,
   background: string,
   ellipse: string,

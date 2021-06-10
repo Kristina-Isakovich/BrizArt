@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import Logo from 'img/icons/logo-icon.svg'
 import { StyledFooter } from './styles'
 

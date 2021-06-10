@@ -3,7 +3,9 @@ import { Advantage } from './components/Advantage'
 import { Lattices } from './components/Lattices'
 import { Contacts } from './components/Contacts'
 import { Order } from './components/Order'
+// @ts-ignore
 import Dimensions from 'img/Dimensions.png'
+// @ts-ignore
 import Application from 'img/Application.png'
 
 export interface IRoute {

@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import Scroll from 'img/icons/scroll.svg'
 import { StyledContainer, StyledTable, StyledTitles } from './styles'
 import { Carousel } from 'antd'

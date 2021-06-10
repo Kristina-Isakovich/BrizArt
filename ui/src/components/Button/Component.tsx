@@ -1,14 +1,9 @@
 import React from 'react'
 import { StyledButton } from './styles'
 
-interface IButtonProps {
-  className?: string
-  type?: 'submit'
-}
-
-export const Button: React.FC<IButtonProps> = (props) => {
+export const Button: React.FC = (props) => {
   return (
-    <StyledButton className={props.className} type={props.type}>
+    <StyledButton {...props}>
       {props.children}
     </StyledButton>
   )

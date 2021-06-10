@@ -1,3 +1,4 @@
+// @ts-nocheck
 import telephone from 'img/icons/telephone.svg'
 import telegram from 'img/icons/telegram.svg'
 import viber from 'img/icons/viber.svg'

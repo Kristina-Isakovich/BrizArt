@@ -1,81 +1,136 @@
-import React, { useState } from 'react'
-import { StyledForm } from './styles'
+import React, {useEffect, useState} from 'react'
+// @ts-ignore
 import { Button } from 'components/Button'
+import { lattices } from '../../../lattices.service'
+import { StyledForm } from './styles'
 import { PlusOutlined } from '@ant-design/icons'
-import { Select, Form } from 'antd'
-import { lattices } from 'modules/mainPage/lattices.service'
 
-const { Option } = Select
+const useValidation = (value: any, validations: any) => {
+  const [isEmpty, setEmpty] = useState(true)
+  const [emailError, setEmailError] = useState(true)
+  const [inputValid, setInputValid] = useState(false)
+
+  useEffect(() => {
+    for (const validation in validations) {
+      switch (validation) {
+        case 'isEmpty':
+          value ? setEmpty(false) : setEmpty(true)
+          break
+        case 'isEmail':
+          const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          re.test(String(value).toLowerCase()) ? setEmailError(false) : setEmailError(true)
+          break
+      }
+    }
+  }, [value])
+
+  useEffect(() => {
+    if(isEmpty || emailError) {
+      setInputValid(false)
+    } else {
+      setInputValid(true)
+    }
+  }, [isEmpty, emailError])
+
+  return {
+    isEmpty,
+    emailError,
+    inputValid,
+  }
+}
+
+const useInput = (initialValue, validations) => {
+  const [value, setValue] = useState(initialValue)
+  const [isDirty, setDirty] = useState(false)
+  const valid = useValidation(value, validations)
+
+  const onChange = (e): void => {
+    setValue(e.target.value)
+  }
+
+  const onBlur = (e): void => {
+    setDirty(true)
+  }
+
+  const amountPlus = (): void => {
+    setValue(+ value + 1)
+  }
+
+  return {
+    value,
+    onChange,
+    onBlur,
+    amountPlus,
+    isDirty,
+    ...valid,
+  }
+}
 
 export const FormCmp: React.FC = () => {
-  const [amount, setAmount] = useState(0)
-  const hendel = (event) => {
-    event.preventDefault()
-    setAmount(amount + 1)
-  }
+  const fullName = useInput('', {isEmpty: true})
+  const address = useInput('', {isEmpty: true})
+  const phone = useInput('', {isEmpty: true})
+  const email = useInput('', {isEmpty: true, isEmail: true})
+  const amount = useInput(null, {isEmpty: true})
+
   return (
-    <StyledForm >
-      <div className='form__container'>
-        <Form.Item name='lattices' rules={[
-          {
-            required: true,
-            message: 'Пожалуйста, выберите тип решетки!',
-          }]}>
-          <Select className='form__lattices' placeholder='Тип решетки' bordered={false} allowClear>
-            {lattices.map(({name}) => <Option key={name} value={name}>{name}</Option>)}
-          </Select>
-        </Form.Item>
+    <StyledForm action="mail.php" method="POST">
+      <div style={{marginBottom: '3rem'}}>
+        <div className='form__container'>
+          <select className='form__lattices form__item' name='lattices'>
+            <option key='Тип решетки' selected disabled hidden>Тип решетки</option>
+            {lattices.map(({name}) => <option key={name} value={name}>{name}</option>)}
+          </select>
 
-        <Form.Item name='amount' rules={[
-          {
-            required: true,
-            message: 'Введите количество!',
-          }]}>
-          <input className='form__item' type='number' value={amount} min={1} placeholder='шт' />
-        </Form.Item>
-
-        <button className='form__plus' onClick={hendel}><PlusOutlined/></button>
+          <input className='form__amount form__item' name='amount' type='number' min={1} placeholder='шт'
+            value={amount.value}
+            onChange={e => amount.onChange(e)}
+            onBlur={e => amount.onBlur(e)}
+          />
+          <button type='button' className='form__plus' onClick={amount.amountPlus}><PlusOutlined/></button>
+        </div>
+        {(amount.isDirty && amount.isEmpty) && <div className='form__error'>Пожалуйста, выберите тип решетки и количество.</div>}
       </div>
 
       <p className='form__title'>Контакные данные</p>
-
       <div className='form__data'>
-        <Form.Item name='fullName' rules={[
-          {
-            required: true,
-            message: 'Пожалуйста, введите как вас зовут!',
-          }]}>
-          <input className='form__item' type='text' placeholder='ФИО' />
-        </Form.Item>
+        <input className='form__item' name='fullName' type='text' placeholder='ФИО'
+          value={fullName.value}
+          onChange={e => fullName.onChange(e)}
+          onBlur={e => fullName.onBlur(e)}
+        />
+        {(fullName.isDirty && fullName.isEmpty) && <div className='form__error'>Пожалуйста, введите ваше имя.</div>}
 
-        <Form.Item name='address'>
-          <input className='form__item' type='text' placeholder='Адрес доставки' />
-        </Form.Item>
+        <input className='form__item' name='address' type='text' placeholder='Адрес доставки'
+          value={address.value}
+          onChange={e => address.onChange(e)}
+          onBlur={e => address.onBlur(e)}
+        />
+        {(address.isDirty && address.isEmpty) && <div className='form__error'>Пожалуйста, введите адрес доставки.</div>}
 
-        <Form.Item name='phone' rules={[
-          {
-            required: true,
-            message: 'Пожалуйста, введите номер телефона!',
-          },
-        ]}>
-          <input className='form__item' type='tel' placeholder='Телефон' pattern='^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$'/>
-        </Form.Item>
+        <input className='form__item' name='phone' type='tel' placeholder='Телефон'
+          pattern='^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$'
+          value={phone.value}
+          onChange={e => phone.onChange(e)}
+          onBlur={e => phone.onBlur(e)}
+        />
 
-        <Form.Item name='email' rules={[
-          {
-            type: 'email',
-            message: 'Пожалуйста, введите правильный E-mail!',
-          },
-          {
-            required: true,
-            message: 'Пожалуйста, введите E-mail!',
-          },
-        ]}>
-          <input className='form__item' type='email' placeholder='E-mail' />
-        </Form.Item>
+        <input className='form__item' name='email' type='email' placeholder='E-mail'
+          value={email.value}
+          onChange={e => email.onChange(e)}
+          onBlur={e => email.onBlur(e)}
+        />
+        {((email.isEmpty && phone.isEmpty) && (phone.isDirty && email.isDirty))
+        && <div className='form__error'>Заполните хотя бы одно контактное поле для связи с вами.</div>}
       </div>
 
-      <Button className='form_submit' type={'submit'}>ОФОРМИТЬ ЗАКАЗ</Button>
+      <Button
+        disabled={!fullName.inputValid || !address.inputValid || !phone.inputValid || !email.inputValid || !amount.inputValid}
+        className='form_submit'
+        type='submit'
+      >
+        ОФОРМИТЬ ЗАКАЗ
+      </Button>
     </StyledForm>
   )
 }

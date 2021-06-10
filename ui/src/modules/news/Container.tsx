@@ -10,7 +10,7 @@ export const News: React.FC<RouteComponentProps> = ({match}) => (
 
     {news.map(item => (
       <Route key={item.id} 
-        path={`${match.url}/${item.title.split(' ').join('_')}`} 
+        path={`${match.url}/${item.title.toLowerCase().split(' ').join('-')}`}
         component={() => <OneNews {...item} />} />
     ))}
   </Switch>

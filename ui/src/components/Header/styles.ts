@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// @ts-ignore
 import { COLORS } from 'styles-constants'
 
 export const StyledHeader = styled.header`

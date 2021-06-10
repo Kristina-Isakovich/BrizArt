@@ -13,7 +13,8 @@ export const AllNews: React.FC<RouteComponentProps> = ({match}) => {
           <div className='news__text'>
             {text.substr(0, 240)}
             <span>... </span>
-            <Link to={`${match.url}/${title.split(' ').join('_')}`}
+            <Link
+              to={`${match.url}/${title.toLowerCase().split(' ').join('-')}`}
               className='news__link'>
                 читать далее
             </Link>

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import advantage_1 from 'img/icons/advantage_1.svg'
 import advantage_2 from 'img/icons/advantage_2.svg'
 import advantage_3 from 'img/icons/advantage_3.svg'

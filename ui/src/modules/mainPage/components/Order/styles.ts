@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// @ts-ignore
 import { TEXT_SIZE } from 'styles-constants'
 
 export const StyledText = styled.div`

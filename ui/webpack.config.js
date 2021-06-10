@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const MODE = process.ENV === 'production' ? 'production' : 'development'
 
@@ -50,6 +51,11 @@ module.exports = {
       inject: true,
     }),
     new MiniCssExtractPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/assets/mail.php', to: './' },
+      ],
+    }),
   ],
 
   devtool: 'inline-source-map',

@@ -1,6 +1,7 @@
 import React from 'react'
 import { StylesContainer, StylesH1, StylesH2, StylesSection } from './styles'
 import { content } from './content.service'
+// @ts-ignore
 import Main from 'img/Main.png'
 
 export const MainPage: React.FC = () => {

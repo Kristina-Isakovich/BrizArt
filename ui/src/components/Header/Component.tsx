@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { StyledHeader } from './styles'
+// @ts-ignore
 import Logo from 'img/Logo.png'
 import { HashLink } from 'react-router-hash-link'
 import { Menu } from './Menu'

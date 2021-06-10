@@ -4,11 +4,14 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
+// @ts-ignore
 import { history } from 'app-history'
 import { Header } from './Header'
 import { GlobalStyle } from './styles'
 import 'antd/dist/antd.css'
+// @ts-ignore
 import { MainPage } from 'modules/mainPage'
+// @ts-ignore
 import { News } from 'modules/news'
 import { Footer } from './Footer'
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// @ts-ignore
 import { COLORS, TEXT_SIZE } from 'styles-constants'
 
 export const StylesWrapper = styled.div`
