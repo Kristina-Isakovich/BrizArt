@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const MODE = process.ENV === 'production' ? 'production' : 'development'
 
@@ -29,6 +30,9 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|svg|jpeg)$/,
         loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+        },
       },
       {
         test: /\.(ts|tsx)$/,
@@ -56,6 +60,7 @@ module.exports = {
         { from: 'src/assets/mail.php', to: './' },
       ],
     }),
+    new CleanWebpackPlugin(),
   ],
 
   devtool: 'inline-source-map',

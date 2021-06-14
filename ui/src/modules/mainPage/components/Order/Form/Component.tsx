@@ -39,20 +39,21 @@ const useValidation = (value: any, validations: any) => {
   }
 }
 
-const useInput = (initialValue, validations) => {
+const useInput = (initialValue: string, validations: { isEmpty: boolean; isEmail?: boolean }) => {
   const [value, setValue] = useState(initialValue)
   const [isDirty, setDirty] = useState(false)
   const valid = useValidation(value, validations)
 
-  const onChange = (e): void => {
+  const onChange = (e: any): void => {
     setValue(e.target.value)
   }
 
-  const onBlur = (e): void => {
+  const onBlur = (e: any): void => {
     setDirty(true)
   }
 
   const amountPlus = (): void => {
+    // @ts-ignore
     setValue(+ value + 1)
   }
 
