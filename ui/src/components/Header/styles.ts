@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 5;
-  &.shabow {
+  &.shadow {
     box-shadow: 0px 10px 8px -8px rgba(50, 50, 50, 0.75);
   }
   & .header__logo {

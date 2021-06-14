@@ -1,71 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 // @ts-ignore
 import { Button } from 'components/Button'
+// @ts-ignore
+import { useInput } from 'utils/formValidation'
 import { lattices } from '../../../lattices.service'
 import { StyledForm } from './styles'
 import { PlusOutlined } from '@ant-design/icons'
-
-const useValidation = (value: any, validations: any) => {
-  const [isEmpty, setEmpty] = useState(true)
-  const [emailError, setEmailError] = useState(true)
-  const [inputValid, setInputValid] = useState(false)
-
-  useEffect(() => {
-    for (const validation in validations) {
-      switch (validation) {
-        case 'isEmpty':
-          value ? setEmpty(false) : setEmpty(true)
-          break
-        case 'isEmail':
-          const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          re.test(String(value).toLowerCase()) ? setEmailError(false) : setEmailError(true)
-          break
-      }
-    }
-  }, [value])
-
-  useEffect(() => {
-    if(isEmpty || emailError) {
-      setInputValid(false)
-    } else {
-      setInputValid(true)
-    }
-  }, [isEmpty, emailError])
-
-  return {
-    isEmpty,
-    emailError,
-    inputValid,
-  }
-}
-
-const useInput = (initialValue: string, validations: { isEmpty: boolean; isEmail?: boolean }) => {
-  const [value, setValue] = useState(initialValue)
-  const [isDirty, setDirty] = useState(false)
-  const valid = useValidation(value, validations)
-
-  const onChange = (e: any): void => {
-    setValue(e.target.value)
-  }
-
-  const onBlur = (e: any): void => {
-    setDirty(true)
-  }
-
-  const amountPlus = (): void => {
-    // @ts-ignore
-    setValue(+ value + 1)
-  }
-
-  return {
-    value,
-    onChange,
-    onBlur,
-    amountPlus,
-    isDirty,
-    ...valid,
-  }
-}
 
 export const FormCmp: React.FC = () => {
   const fullName = useInput('', {isEmpty: true})
@@ -126,7 +66,7 @@ export const FormCmp: React.FC = () => {
       </div>
 
       <Button
-        disabled={!fullName.inputValid || !address.inputValid || !phone.inputValid || !email.inputValid || !amount.inputValid}
+        disabled={!fullName.inputValid || !address.inputValid || !(phone.inputValid || email.inputValid) || !amount.inputValid}
         className='form_submit'
         type='submit'
       >

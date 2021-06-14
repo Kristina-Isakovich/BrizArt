@@ -29,5 +29,6 @@
     "styles-constants": ["src/styles.constants"],
     "img/*": ["public/img/*"],
     "modules/*": ["src/modules/*"],
+    "utils/*": ["src/utils/*"],
   }
 }

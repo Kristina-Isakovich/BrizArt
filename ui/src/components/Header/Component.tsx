@@ -12,10 +12,15 @@ export const Header: React.FC = () => {
   const toggleMenuActive = () => window.innerWidth <= 768 ? setMenuActive(!menuActive) : null
 
   const listenScrollEvent = () => {
-    window.scrollY >= 520
-      ? setHeader('shabow')
+    window.scrollY >= 10
+      ? setHeader('shadow')
       : setHeader('')
   }
+
+  useEffect(() => {
+    const body = document.querySelector('body')
+    body.style.overflow = menuActive ? 'hidden' : 'auto'
+  }, [menuActive])
 
   useEffect(() => {
     window.addEventListener('scroll', listenScrollEvent)
@@ -31,7 +36,7 @@ export const Header: React.FC = () => {
 
       <div className={menuActive ? 'header__burger active' : 'header__burger'}
         onClick={toggleMenuActive}>
-        <span></span>
+        <span/>
       </div>
 
       <Menu menuActive={menuActive} toggleMenuActive={toggleMenuActive} />

@@ -23,6 +23,7 @@ module.exports = {
       'styles-constants': path.resolve(__dirname, 'src/styles.constants'),
       'img': path.resolve(__dirname, 'public/img'),
       'modules': path.resolve(__dirname, 'src/modules'),
+      'utils': path.resolve(__dirname, 'src/utils'),
     },
   },
   module: {

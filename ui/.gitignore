@@ -1,4 +1,5 @@
 /node_modules
 /build
-src/assets
+/src/assets
+/admin
 ../.idea

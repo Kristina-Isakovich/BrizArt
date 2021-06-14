@@ -15,7 +15,11 @@ export const Menu: React.FC<IMenuProps> = ({menuActive, toggleMenuActive}) => {
       {menuItems.map(({to, title}) => (
         <HashLink key={to} smooth to={to} onClick={toggleMenuActive}>{title}</HashLink>
       ))}
-      <Button><HashLink smooth to={'/#order'}>ЗАКАЗАТЬ</HashLink></Button>
+
+      {menuActive
+        ? <HashLink key='/#order' smooth to='/#order' onClick={toggleMenuActive}>Заказать</HashLink>
+        : <Button><HashLink smooth to={'/#order'}>ЗАКАЗАТЬ</HashLink></Button>}
+
     </StyledMenu>
   )
 }
